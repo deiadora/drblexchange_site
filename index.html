@@ -1,0 +1,565 @@
+<!-- index.html (Cloudflare Pages — drblexchange.com) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>drbl exchange — distributed resource building lab</title>
+  <meta name="description" content="a peer-run space to match needs and offers, run lightweight sprints, and build shared infra across the dtech ecosystem." />
+  <meta property="og:title" content="drbl exchange" />
+  <meta property="og:description" content="peer-run space for the dtech ecosystem. funding, collaboration, and projects — built on mutuality." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://drblexchange.com" />
+   <meta property="og:image" content="https://drblexchange.com/drblx_banner_sm.jpeg" />
+  <link rel="icon" href="/drblx_favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:        #1a1814;
+      --paper:      #f4f2ec;
+      --card:       #fffff2;
+      --card-lt:    #e8e2d6;
+      --gold:       #8a6418;
+      --gold-lt:    #e6c47d;
+      --heart:      #3a6352;
+      --heart-lt:   #608977;
+      --g-centre:   #424d38;
+      --root:       #6b1f3a;
+      --muted:      #7a7163;
+      --line:       rgba(26,24,20,.12);
+      --r:          8px;
+      --serif:      'Exo 2', system-ui, sans-serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ─── dark mode ─── */
+    [data-theme="dark"] {
+      --ink:        #f4f2ec;
+      --paper:      #010003;
+      --card:       #151515;
+      --card-lt:    #20211e;
+      --gold:       #e6c47d;
+      --gold-lt:    #e6c47d;
+      --heart:      #608977;
+      --heart-lt:   #7aa896;
+      --g-centre:   #707d64;
+      --root:       #6d2f48;
+      --muted:      #b5ad9e;
+      --line:       rgba(240,237,230,.1);
+    }
+
+    [data-theme="dark"] .nav { background: #010003; }
+    [data-theme="dark"] .card { background: #151515; }
+    [data-theme="dark"] .how-card { background: #151515; }
+    [data-theme="dark"] .moss-card { background: #151515; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* ─── nav ─── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 2rem;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+
+    .brand span { color: var(--heart); }
+
+    .navlinks { display: flex; align-items: center; gap: 1.6rem; }
+
+    .navlinks a {
+      font-size: .85rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: color .2s;
+    }
+
+    .navlinks a:hover { color: var(--gold); }
+
+    .navlinks .pill {
+      background: var(--heart);
+      color: var(--paper);
+      padding: .42rem 1rem;
+      border-radius: 100px;
+      font-weight: 500;
+      transition: background .2s;
+    }
+
+    .navlinks .pill:hover {
+      background: var(--heart-lt);
+      outline: 1.5px solid var(--gold);
+      outline-offset: 1px;
+    }
+
+    /* ─── page ─── */
+    .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+    /* ─── hero ─── */
+    .hero {
+      padding: 7rem 0 5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: .88rem;
+      font-weight: 300;
+      color: var(--heart);
+      margin-bottom: 1.2rem;
+      letter-spacing: .06em;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.12;
+      letter-spacing: -.03em;
+      font-weight: 700;
+      color: var(--ink);
+      max-width: 680px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .subhead strong { color: var(--ink); font-weight: 500; }
+
+    .ctaRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+
+    .micro { font-size: .78rem; color: var(--muted); letter-spacing: .03em; font-style: italic; }
+
+    /* ─── buttons ─── */
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: .65rem 1.4rem;
+      border-radius: var(--r);
+      font-family: var(--sans);
+      font-size: .88rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .2s;
+      border: 1.5px solid transparent;
+    }
+
+    .btn.primary { background: var(--heart); color: var(--paper); border-color: var(--heart); }
+    .btn.primary:hover { background: var(--heart-lt); border-color: var(--heart-lt); }
+    .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── sections ─── */
+    section { margin-top: 5rem; }
+
+    .section-label {
+      font-family: var(--serif);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--heart);
+      margin-bottom: 1.6rem;
+    }
+
+    /* ─── cards ─── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 2.2rem 2.4rem;
+    }
+
+    .card h2 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .card p { color: var(--muted); line-height: 1.75; font-size: .97rem; }
+
+    /* ─── how it works grid ─── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 600px) { .how-grid { grid-template-columns: 1fr; } }
+
+    .how-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      transition: border-color .2s;
+    }
+
+    .how-card:hover { border-color: var(--heart); }
+
+    .how-card .channel {
+      font-family: var(--serif);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--heart);
+    }
+
+    .how-card h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+
+    .how-card p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── tenets ─── */
+    .tenets-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .tenet {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tenet:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .tenet-num {
+      font-family: var(--serif);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--heart);
+      letter-spacing: .06em;
+      min-width: 1.6rem;
+      padding-top: .15rem;
+    }
+
+    .tenet-body h3 {
+      font-family: var(--sans);
+      font-size: .92rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: .3rem;
+    }
+
+    .tenet-body p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── moss section ─── */
+    .moss-card {
+      background: var(--card);
+      border: 1px solid var(--heart);
+      border-radius: var(--r);
+      padding: 2.2rem 2.4rem;
+    }
+
+    .moss-card h2 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      margin-bottom: .8rem;
+      color: var(--ink);
+    }
+
+    .moss-card p { color: var(--muted); line-height: 1.75; font-size: .97rem; margin-bottom: 1rem; }
+
+    /* ─── footer ─── */
+    .footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: .6rem;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .footer a { color: var(--gold); text-decoration: none; }
+    .footer a:hover { opacity: .75; }
+
+    .theme-toggle {
+      background: none;
+      border: 1.5px solid var(--line);
+      border-radius: 100px;
+      cursor: pointer;
+      padding: .35rem .6rem;
+      font-size: 1rem;
+      line-height: 1;
+      color: var(--muted);
+      transition: border-color .2s, color .2s;
+    }
+
+    .theme-toggle:hover { border-color: var(--gold-lt); color: var(--ink); }
+
+    /* ─── misc ─── */
+    .muted { color: var(--muted); }
+
+    .theme-toggle {
+      background: none;
+      border: 1.5px solid var(--line);
+      border-radius: 100px;
+      cursor: pointer;
+      padding: .35rem .6rem;
+      font-size: 1rem;
+      line-height: 1;
+      color: var(--muted);
+      transition: border-color .2s, color .2s;
+    }
+
+    .theme-toggle:hover { border-color: var(--gold-lt); color: var(--ink); }
+
+    /* ─── animations ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero .kicker  { animation: fadeUp .5s ease both; animation-delay: .05s; }
+    .hero h1       { animation: fadeUp .5s ease both; animation-delay: .12s; }
+    .hero .subhead { animation: fadeUp .5s ease both; animation-delay: .2s; }
+    .hero .ctaRow  { animation: fadeUp .5s ease both; animation-delay: .28s; }
+    .hero .micro   { animation: fadeUp .5s ease both; animation-delay: .34s; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/">drbl <span>exchange</span></a>
+    <nav class="navlinks">
+      <a href="#how">how it works</a>
+      <a href="#tenets">tenets</a>
+      <a href="#join" class="pill">join</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <!-- ─── hero ─── -->
+    <section class="hero">
+      <p class="kicker">distributed resource building lab · heart centre · willpower & community</p>
+      <h1>a peer-run space for the <em>dtech ecosystem.</em></h1>
+      <p class="subhead">
+        we exist to help people <strong>find funding ethically</strong>, <strong>connect on projects</strong>, and <strong>build shared infrastructure</strong> — without extraction, without hierarchy, without the usual nonsense.
+      </p>
+      <p class="subhead">
+        match needs ↔ offers. run lightweight sprints. ship things that matter.
+      </p>
+      <div class="ctaRow">
+        <a class="btn primary" href="https://discord.gg/XcMyyEug" target="_blank" rel="noopener">join the discord</a>
+        <a class="btn ghost" href="#tenets">read the tenets</a>
+      </div>
+      <p class="micro">entry is by introduction · someone vouches for you · that's the whole filter</p>
+    </section>
+
+    <!-- ─── how it works ─── -->
+    <section id="how">
+      <p class="section-label">how it works</p>
+      <div class="how-grid">
+
+        <div class="how-card">
+          <p class="channel">#connect</p>
+          <h3>introduce yourself</h3>
+          <p>who you are, what you're working on, what you offer, what you're looking for. one post, honest and brief.</p>
+        </div>
+
+        <div class="how-card">
+          <p class="channel">#needs</p>
+          <h3>post a need</h3>
+          <p>one need per message. what it is, who it helps, what done looks like, your deadline and time zone.</p>
+        </div>
+
+        <div class="how-card">
+          <p class="channel">#offers</p>
+          <h3>post an offer</h3>
+          <p>what you can do, who it's best for, your availability and limits. clear constraints are a gift to everyone.</p>
+        </div>
+
+        <div class="how-card">
+          <p class="channel">#matches</p>
+          <h3>pair and move</h3>
+          <p>need meets offer. name an owner. name a next step. 48-hour moves. 2-week sprints. ship over debate.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── tenets ─── -->
+    <section id="tenets">
+      <p class="section-label">tenets</p>
+      <div class="card">
+        <h2>this is a space that runs on mutuality.</h2>
+        <p>honesty, consistency, repair, and respect for boundaries. if that sounds like a lot, it isn't — it's just basic relational hygiene. here's what that looks like in practice:</p>
+
+        <div class="tenets-list">
+
+          <div class="tenet">
+            <span class="tenet-num">01</span>
+            <div class="tenet-body">
+              <h3>non-extractive</h3>
+              <p>clear asks. offer something back or timebox. this is an exchange, not a favour bank.</p>
+            </div>
+          </div>
+
+          <div class="tenet">
+            <span class="tenet-num">02</span>
+            <div class="tenet-body">
+              <h3>consent first</h3>
+              <p>no unsolicited DMs. ask in-channel before sliding into anyone's inbox.</p>
+            </div>
+          </div>
+
+          <div class="tenet">
+            <span class="tenet-num">03</span>
+            <div class="tenet-body">
+              <h3>one item per post</h3>
+              <p>keep it scannable. one need, one offer, one idea. clarity is kindness.</p>
+            </div>
+          </div>
+
+          <div class="tenet">
+            <span class="tenet-num">04</span>
+            <div class="tenet-body">
+              <h3>ship over debate</h3>
+              <p>propose, name an owner, set a deadline. progress beats perfect every time.</p>
+            </div>
+          </div>
+
+          <div class="tenet">
+            <span class="tenet-num">05</span>
+            <div class="tenet-body">
+              <h3>credit + permission</h3>
+              <p>don't repost others' work outside drblx without asking. what's shared here stays here unless agreed otherwise.</p>
+            </div>
+          </div>
+
+          <div class="tenet">
+            <span class="tenet-num">06</span>
+            <div class="tenet-body">
+              <h3>no harassment or pile-ons</h3>
+              <p>critique ideas, not people. mods enforce this without debate.</p>
+            </div>
+          </div>
+
+          <div class="tenet">
+            <span class="tenet-num">07</span>
+            <div class="tenet-body">
+              <h3>keep it public-safe</h3>
+              <p>treat every post as if anyone could read it. personal details, private projects, sensitive data — keep those in DMs or off-platform.</p>
+            </div>
+          </div>
+
+          <div class="tenet">
+            <span class="tenet-num">08</span>
+            <div class="tenet-body">
+              <h3>no epistemic bullying</h3>
+              <p>debate-as-domination — sealioning, gotchas, tone-policing — is not welcome here and will result in removal. critique the idea. respect the person.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── moss / join ─── -->
+    <section id="join">
+      <div class="moss-card">
+        <h2>ready to join?</h2>
+        <p>drbl exchange currently lives on discord while we test <strong>moss</strong> — a decentralised collab hub with video, chat, and whiteboard, built for communities like this one.</p>
+        <p>discord is the interim. moss is the destination. both are invite-only: <strong>someone who's already here vouches for you.</strong> that's the whole filter — and it's intentional.</p>
+        <p class="muted">if you've been introduced by a member, join us in discord and say hello in #connect. if you're curious but don't know anyone yet — that's what folk tech meetups are for. 🌿</p>
+        <div class="ctaRow" style="margin-top:1.4rem;">
+          <a class="btn primary" href="https://discord.gg/XcMyyEug" target="_blank" rel="noopener">join the discord</a>
+          <a class="btn ghost" href="https://deiadora.com" target="_blank" rel="noopener">deiadora.com</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>drbl exchange · distributed resource building lab · heart centre 🌿</p>
+      <p>part of the <a href="https://deiadora.com">deiadora ecosystem</a></p>
+    </footer>
+
+  </main>
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const saved = localStorage.getItem("theme-drbl") || "light";
+    document.documentElement.setAttribute("data-theme", saved);
+    toggle.textContent = saved === "dark" ? "☀️" : "🌙";
+
+    toggle.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme-drbl", next);
+      toggle.textContent = next === "dark" ? "☀️" : "🌙";
+    });
+  </script>
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const saved = localStorage.getItem("theme-drbl") || "light";
+    document.documentElement.setAttribute("data-theme", saved);
+    toggle.textContent = saved === "dark" ? "☀️" : "🌙";
+
+    toggle.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme-drbl", next);
+      toggle.textContent = next === "dark" ? "☀️" : "🌙";
+    });
+  </script>
+</body>
+</html>
