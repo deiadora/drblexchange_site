@@ -534,6 +534,7 @@
 
   </main>
   <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
     const toggle = document.getElementById("themeToggle");
     const saved = localStorage.getItem("theme-drbl") || "light";
     document.documentElement.setAttribute("data-theme", saved);
@@ -547,19 +548,6 @@
       toggle.textContent = next === "dark" ? "☀️" : "🌙";
     });
   </script>
-  <script>
-    const toggle = document.getElementById("themeToggle");
-    const saved = localStorage.getItem("theme-drbl") || "light";
-    document.documentElement.setAttribute("data-theme", saved);
-    toggle.textContent = saved === "dark" ? "☀️" : "🌙";
-
-    toggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme");
-      const next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme-drbl", next);
-      toggle.textContent = next === "dark" ? "☀️" : "🌙";
-    });
-  </script>
+  
 </body>
 </html>
