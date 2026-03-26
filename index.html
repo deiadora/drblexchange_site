@@ -155,9 +155,17 @@
 
     .subhead strong { color: var(--ink); font-weight: 500; }
 
-    .ctaRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+    .hero-note {
+  font-size: .82rem;
+  color: var(--muted);
+  letter-spacing: .03em;
+  margin-top: 2rem;
+  font-style: italic;
+}
 
-    .micro { font-size: .78rem; color: var(--muted); letter-spacing: .03em; font-style: italic; }
+    .hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .34s; }
+    
+    .ctaRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
 
     /* ─── buttons ─── */
     .btn {
@@ -401,8 +409,7 @@
         <a class="btn primary" href="https://discord.gg/XcMyyEug" target="_blank" rel="noopener">join the discord</a>
         <a class="btn ghost" href="#tenets">read the tenets</a>
       </div>
-      <p class="micro">entry is by introduction · someone vouches for you · that's the whole filter</p>
-    </section>
+      <p class="hero-note">built on mutuality · running on introduction</p>    </section>
 
     <!-- ─── how it works ─── -->
     <section id="how">
