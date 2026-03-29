@@ -107,17 +107,21 @@ Deployed on **Cloudflare Pages**.
 - Default theme: light
 - Theme preference stored in `localStorage` key: `theme-drbl`
 - Discord invite: discord.gg/XcMyyEug
+- Email hello@drbelexchange.com
 
 ---
 
 ### part of the deiadora ecosystem
-
-→ [deiadora.com](https://deiadora.com) · node 0 · the field
-→ [drblexchange.com](https://drblexchange.com) · node 2 · recognition
-→ [quantummagic.ai](https://quantummagic.ai) · node 3 · discernment
-→ [iamdeiadora.com](https://iamdeiadora.com) · node 4 · wave
-→ [deiadorebel.com](https://deiadorebel.com) · node 6 · transmission
-→ [techtuition.ai](https://techtuition.ai) · node 7 · expression
-→ [thequantumceo.com](https://thequantumceo.com) · node 8 · structure
+ 
+→ [deiadora.com](https://deiadora.com) · 0 · the field · zero point
+→ [deiadorebel.life](https://deiadorebel.life) · 1 · coherence · torus
+→ [drblexchange.com](https://drblexchange.com) · 2 ·recognition · vesica piscis
+→ [quantummagic.ai](https://quantummagic.ai) · 3 · discernment · tetrahedron
+→ [iamdeiadora.com](https://iamdeiadora.com) · 4 · wave · the cube
+→ [rebelevolve.com](https://rebelevolve.com) · 5 · direction · second cube
+→ [deiadorebel.com](https://deiadorebel.com) · 6 · transmission · dodecahedron
+→ [techtuition.ai](https://techtuition.ai) · 7 · expression · egg of life
+→ [thequantumceo.com](https://thequantumceo.com) · 8 · structure · octagon
+→ [deiadora.live](https://deiadora.live) · 9 · source · nonagon
 
 *built on mutuality · running on introduction*
