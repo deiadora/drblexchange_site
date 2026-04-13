@@ -10,7 +10,7 @@
   <meta property="og:description" content="resource for the dtech ecosystem. funding, collaboration, and projects — built on mutuality." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://drblexchange.com" />
-   <meta property="og:image" content="https://drblexchange.com/drblx_banner_sm.jpeg" />
+  <meta property="og:image" content="https://drblexchange.com/drblx_banner_sm.jpeg" />
   <link rel="icon" href="/drblx_favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,6 @@
   --card:       #fffff2;
   --card-lt:    #e8e2d6;
   --gold:       #8a6418;
-
   /* ── spectrum variables ── */
   --node-0:     #0c1516;
   --node-1:     #6b2d1a;
@@ -34,17 +33,14 @@
   --node-7:     #1a6b9e;
   --node-8:     #3c3489;
   --node-9:     #2d1a4e;
-
   --accent:     #9d4418;  /* node-2 · recognition · vesica piscis · terracotta */
   --accent-lt:  #c45a20;
-
   --muted:      #7a7163;
   --line:       rgba(26,24,20,.12);
   --r:          8px;
   --serif:      'Exo 2', system-ui, sans-serif;
   --sans:       'DM Sans', system-ui, sans-serif;
 }
-
 [data-theme="dark"] {
   --ink:        #f4f2ec;
   --paper:      #010003;
@@ -56,12 +52,10 @@
   --muted:      #b5ad9e;
   --line:       rgba(240,237,230,.1);
 }
-
 [data-theme="dark"] .nav       { background: #010003; }
 [data-theme="dark"] .card      { background: #151515; }
 [data-theme="dark"] .how-card  { background: #151515; }
 [data-theme="dark"] .moss-card { background: #151515; }
-
 [data-theme="light"] {
   --ink:        #1a1814;
   --paper:      #f4f2ec;
@@ -73,17 +67,14 @@
   --accent-lt:  #c45a20;
   --line:       rgba(26,24,20,.12);
 }
-
 [data-theme="light"] .nav       { background: #f4f2ec; }
 [data-theme="light"] .card      { background: #fffff2; }
 [data-theme="light"] .how-card  { background: #fffff2; }
 [data-theme="light"] .moss-card { background: #fffff2; }
 [data-theme="light"] .brand     { color: #1a1814; }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background .25s, color .25s; }
 /* ─── nav ─── */
 .nav {
   position: sticky; top: 0; z-index: 100;
@@ -93,7 +84,6 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
 }
-
 .brand {
   font-family: var(--serif);
   font-size: 1.1rem;
@@ -102,11 +92,8 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   text-decoration: none;
   letter-spacing: -.02em;
 }
-
 .brand span { color: var(--accent); }
-
 .navlinks { display: flex; align-items: center; gap: 1.6rem; }
-
 .navlinks a {
   font-size: .85rem;
   font-weight: 400;
@@ -115,9 +102,7 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   letter-spacing: .02em;
   transition: color .2s;
 }
-
 .navlinks a:hover { color: var(--accent); }
-
 .navlinks .pill {
   background: var(--accent);
   color: var(--paper);
@@ -126,13 +111,11 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   font-weight: 500;
   transition: background .2s;
 }
-
 .navlinks .pill:hover {
   background: var(--accent-lt);
   outline: 1.5px solid var(--gold);
   outline-offset: 1px;
 }
-
 .theme-toggle {
   background: none;
   border: 1.5px solid var(--line);
@@ -144,18 +127,14 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   color: var(--muted);
   transition: border-color .2s, color .2s;
 }
-
 .theme-toggle:hover { border-color: var(--gold); color: var(--ink); }
-
 /* ─── page ─── */
 .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
-
 /* ─── hero ─── */
 .hero {
   padding: 7rem 0 5rem;
   border-bottom: 1px solid var(--line);
 }
-
 .kicker {
   font-family: var(--serif);
   font-style: italic;
@@ -165,7 +144,6 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   margin-bottom: 1.2rem;
   letter-spacing: .06em;
 }
-
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(2.2rem, 5vw, 3.4rem);
@@ -176,13 +154,11 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   max-width: 680px;
   margin-bottom: 1.4rem;
 }
-
 .hero h1 em {
   font-style: italic;
   font-weight: 300;
   color: var(--accent);
 }
-
 .subhead {
   font-size: 1.05rem;
   color: var(--muted);
@@ -191,9 +167,7 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   margin-bottom: 2rem;
   font-weight: 300;
 }
-
 .subhead strong { color: var(--ink); font-weight: 500; }
-
 .hero-note {
   font-size: .82rem;
   color: var(--muted);
@@ -201,9 +175,7 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   margin-top: 2rem;
   font-style: italic;
 }
-
 .ctaRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
-
 /* ─── buttons ─── */
 .btn {
   display: inline-flex; align-items: center;
@@ -217,15 +189,12 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   transition: all .2s;
   border: 1.5px solid transparent;
 }
-
 .btn.primary { background: var(--accent); color: var(--paper); border-color: var(--accent); }
 .btn.primary:hover { background: var(--accent-lt); border-color: var(--accent-lt); }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
-
 /* ─── sections ─── */
 section { margin-top: 5rem; }
-
 .section-label {
   font-family: var(--serif);
   font-size: .78rem;
@@ -235,7 +204,6 @@ section { margin-top: 5rem; }
   color: var(--accent);
   margin-bottom: 1.6rem;
 }
-
 /* ─── cards ─── */
 .card {
   background: var(--card);
@@ -243,7 +211,6 @@ section { margin-top: 5rem; }
   border-radius: var(--r);
   padding: 2.2rem 2.4rem;
 }
-
 .card h2 {
   font-family: var(--serif);
   font-size: 1.4rem;
@@ -252,18 +219,14 @@ section { margin-top: 5rem; }
   margin-bottom: 1rem;
   color: var(--ink);
 }
-
 .card p { color: var(--muted); line-height: 1.75; font-size: .97rem; }
-
 /* ─── how it works grid ─── */
 .how-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
 }
-
 @media (max-width: 600px) { .how-grid { grid-template-columns: 1fr; } }
-
 .how-card {
   background: var(--card);
   border: 1px solid var(--line);
@@ -274,9 +237,7 @@ section { margin-top: 5rem; }
   gap: .6rem;
   transition: border-color .2s;
 }
-
 .how-card:hover { border-color: var(--accent); }
-
 .how-card .channel {
   font-family: var(--serif);
   font-size: .75rem;
@@ -285,7 +246,6 @@ section { margin-top: 5rem; }
   text-transform: uppercase;
   color: var(--accent);
 }
-
 .how-card h3 {
   font-family: var(--serif);
   font-size: 1rem;
@@ -293,13 +253,11 @@ section { margin-top: 5rem; }
   color: var(--ink);
   letter-spacing: -.01em;
 }
-
 .how-card p {
   font-size: .88rem;
   color: var(--muted);
   line-height: 1.65;
 }
-
 /* ─── tenets ─── */
 .tenets-list {
   display: flex;
@@ -307,7 +265,6 @@ section { margin-top: 5rem; }
   gap: 1rem;
   margin-top: 1.2rem;
 }
-
 .tenet {
   display: flex;
   gap: 1.2rem;
@@ -315,9 +272,7 @@ section { margin-top: 5rem; }
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--line);
 }
-
 .tenet:last-child { border-bottom: none; padding-bottom: 0; }
-
 .tenet-num {
   font-family: var(--serif);
   font-size: .78rem;
@@ -327,7 +282,6 @@ section { margin-top: 5rem; }
   min-width: 1.6rem;
   padding-top: .15rem;
 }
-
 .tenet-body h3 {
   font-family: var(--sans);
   font-size: .92rem;
@@ -335,13 +289,11 @@ section { margin-top: 5rem; }
   color: var(--ink);
   margin-bottom: .3rem;
 }
-
 .tenet-body p {
   font-size: .88rem;
   color: var(--muted);
   line-height: 1.65;
 }
-
 /* ─── moss section ─── */
 .moss-card {
   background: var(--card);
@@ -349,7 +301,6 @@ section { margin-top: 5rem; }
   border-radius: var(--r);
   padding: 2.2rem 2.4rem;
 }
-
 .moss-card h2 {
   font-family: var(--serif);
   font-size: 1.4rem;
@@ -358,9 +309,7 @@ section { margin-top: 5rem; }
   margin-bottom: .8rem;
   color: var(--ink);
 }
-
 .moss-card p { color: var(--muted); line-height: 1.75; font-size: .97rem; margin-bottom: 1rem; }
-
 /* ─── footer ─── */
 .footer {
   margin-top: 5rem;
@@ -371,18 +320,14 @@ section { margin-top: 5rem; }
   font-size: .82rem;
   color: var(--muted);
 }
-
 .footer a { color: var(--gold); text-decoration: none; }
 .footer a:hover { opacity: .75; }
-
 .muted { color: var(--muted); }
-
 /* ─── animations ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 .hero .kicker    { animation: fadeUp .5s ease both; animation-delay: .05s; }
 .hero h1         { animation: fadeUp .5s ease both; animation-delay: .12s; }
 .hero .subhead   { animation: fadeUp .5s ease both; animation-delay: .2s; }
@@ -397,7 +342,7 @@ section { margin-top: 5rem; }
       <a href="#how">how it works</a>
       <a href="#tenets">tenets</a>
       <a href="#join" class="pill">join</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="toggle dark mode">🌙</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌙</button>
     </nav>
   </header>
 
@@ -417,37 +362,33 @@ section { margin-top: 5rem; }
         <a class="btn primary" href="https://discord.gg/F7Bf4c4rhx" target="_blank" rel="noopener">join the discord</a>
         <a class="btn ghost" href="#tenets">read the tenets</a>
       </div>
-      <p class="hero-note">built on mutuality · running on introduction</p>    </section>
+      <p class="hero-note">built on mutuality · running on introduction</p>
+    </section>
 
     <!-- ─── how it works ─── -->
     <section id="how">
       <p class="section-label">how it works</p>
       <div class="how-grid">
-
         <div class="how-card">
           <p class="channel">#connect</p>
           <h3>Introduce yourself</h3>
           <p>Who you are, what you're working on, what you offer, what you're looking for. One post, honest and brief.</p>
         </div>
-
         <div class="how-card">
           <p class="channel">#needs</p>
           <h3>Post a need</h3>
           <p>One need per message. What it is, who it helps, what done looks like, your deadline and time zone.</p>
         </div>
-
         <div class="how-card">
           <p class="channel">#offers</p>
           <h3>Post an offer</h3>
           <p>What you can do, who it's best for, your availability and limits. Clear constraints are a gift to everyone.</p>
         </div>
-
         <div class="how-card">
           <p class="channel">#matches</p>
           <h3>Pair and move</h3>
           <p>Need meets offer. Name an owner. Name a next step. 48-hour moves. 2-week sprints. Ship over debate.</p>
         </div>
-
       </div>
     </section>
 
@@ -457,9 +398,7 @@ section { margin-top: 5rem; }
       <div class="card">
         <h2>This is a space that runs on mutuality.</h2>
         <p>Honesty, consistency, repair, and respect for boundaries. Basic relational hygiene. Here's what that looks like in practice:</p>
-
         <div class="tenets-list">
-
           <div class="tenet">
             <span class="tenet-num">01</span>
             <div class="tenet-body">
@@ -467,7 +406,6 @@ section { margin-top: 5rem; }
               <p>Clear asks. Offer something back or timebox. This is an exchange, not a favour bank.</p>
             </div>
           </div>
-
           <div class="tenet">
             <span class="tenet-num">02</span>
             <div class="tenet-body">
@@ -475,7 +413,6 @@ section { margin-top: 5rem; }
               <p>No unsolicited DMs. Ask in-channel before sliding into anyone's inbox.</p>
             </div>
           </div>
-
           <div class="tenet">
             <span class="tenet-num">03</span>
             <div class="tenet-body">
@@ -483,7 +420,6 @@ section { margin-top: 5rem; }
               <p>Keep it scannable. One need, one offer, one idea. Clarity is kindness.</p>
             </div>
           </div>
-
           <div class="tenet">
             <span class="tenet-num">04</span>
             <div class="tenet-body">
@@ -491,7 +427,6 @@ section { margin-top: 5rem; }
               <p>Propose, name an owner, set a deadline. Progress beats perfect every time.</p>
             </div>
           </div>
-
           <div class="tenet">
             <span class="tenet-num">05</span>
             <div class="tenet-body">
@@ -499,7 +434,6 @@ section { margin-top: 5rem; }
               <p>Don't repost others' work outside drblx without asking. What's shared here stays here unless agreed otherwise.</p>
             </div>
           </div>
-
           <div class="tenet">
             <span class="tenet-num">06</span>
             <div class="tenet-body">
@@ -507,7 +441,6 @@ section { margin-top: 5rem; }
               <p>Critique ideas, not people. Mods enforce this without debate.</p>
             </div>
           </div>
-
           <div class="tenet">
             <span class="tenet-num">07</span>
             <div class="tenet-body">
@@ -515,7 +448,6 @@ section { margin-top: 5rem; }
               <p>Treat every post as if anyone could read it. Personal details, private projects, sensitive data — keep those in DMs or off-platform.</p>
             </div>
           </div>
-
           <div class="tenet">
             <span class="tenet-num">08</span>
             <div class="tenet-body">
@@ -523,7 +455,6 @@ section { margin-top: 5rem; }
               <p>Debate-as-domination — sealioning, gotchas, tone-policing — is not welcome here and will result in removal. Critique the idea. Respect the person.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -537,7 +468,7 @@ section { margin-top: 5rem; }
         <p class="muted">If you've been introduced by a member, we'd love to see you in Discord — say hello in #connect. Don't know anyone yet? That's exactly what we're here for. Reach out and let's connect you. 🌿</p>
         <div class="ctaRow" style="margin-top:1.4rem;">
           <a class="btn primary" href="https://discord.gg/F7Bf4c4rhx" target="_blank" rel="noopener">join the discord</a>
-          <a class="btn ghost" href="https://deiadora.com" target="_blank" rel="noopener">meet deiadora</a>
+          <a class="btn ghost" href="https://deiadora.com">meet deiadora</a>
         </div>
       </div>
     </section>
@@ -548,21 +479,52 @@ section { margin-top: 5rem; }
     </footer>
 
   </main>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    const toggle = document.getElementById("themeToggle");
-    const saved = localStorage.getItem("theme-drbl") || "light";
-    document.documentElement.setAttribute("data-theme", saved);
-    toggle.textContent = saved === "dark" ? "🌙" : "☀️";
 
+    const toggle  = document.getElementById("themeToggle");
+    const root    = document.documentElement;
+    const STORE   = "qc-theme"; // shared key across all ecosystem sites
+
+    // Detect system preference
+    const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function resolveTheme() {
+      const saved = localStorage.getItem(STORE);
+      if (saved) return saved;                     // explicit user override
+      return sysDark.matches ? "dark" : "light";   // follow system
+    }
+
+    function applyTheme(theme) {
+      root.setAttribute("data-theme", theme);
+      toggle.textContent = theme === "dark" ? "🌙" : "☀️";
+      toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
+    }
+
+    // Initial paint
+    applyTheme(resolveTheme());
+
+    // Toggle click — cycle: override opposite → clear override (return to system)
     toggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme");
+      const current = root.getAttribute("data-theme");
+      const sysTheme = sysDark.matches ? "dark" : "light";
       const next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme-drbl", next);
-      toggle.textContent = next === "dark" ? "🌙" : "☀️";
+
+      if (next === sysTheme) {
+        localStorage.removeItem(STORE);
+      } else {
+        localStorage.setItem(STORE, next);
+      }
+      applyTheme(next);
+    });
+
+    // Follow OS schedule changes if no manual override is set
+    sysDark.addEventListener("change", () => {
+      if (!localStorage.getItem(STORE)) {
+        applyTheme(sysDark.matches ? "dark" : "light");
+      }
     });
   </script>
-  
 </body>
 </html>
