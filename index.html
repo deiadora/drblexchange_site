@@ -1,20 +1,19 @@
-<!-- index.html (Cloudflare Pages — drblexchange.com) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>drbl exchange — distributed resource building lab</title>
-  <meta name="description" content="a peer-run space to match needs and offers, run lightweight sprints, and build shared infra across the dtech ecosystem." />
+  <title>drbl exchange — where the ecosystem gathers</title>
+  <meta name="description" content="A peer-run space to connect, collaborate, and build — for individuals, teams, and organisations exploring the deiadora ecosystem." />
   <meta property="og:title" content="drbl exchange" />
-  <meta property="og:description" content="resource for the dtech ecosystem. funding, collaboration, and projects — built on mutuality." />
+  <meta property="og:description" content="Where the ecosystem gathers. Match needs and offers. Run sprints. Build on mutuality." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://drblexchange.com" />
   <meta property="og:image" content="https://drblexchange.com/drblx_banner_sm.jpeg" />
   <link rel="icon" href="/drblx_favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
 :root {
   --ink:        #1a1814;
@@ -22,7 +21,6 @@
   --card:       #fffff2;
   --card-lt:    #e8e2d6;
   --gold:       #8a6418;
-  /* ── spectrum variables ── */
   --node-0:     #0c1516;
   --node-1:     #6b2d1a;
   --node-2:     #9d4418;
@@ -33,13 +31,14 @@
   --node-7:     #1a6b9e;
   --node-8:     #3c3489;
   --node-9:     #2d1a4e;
-  --accent:     #9d4418;  /* node-2 · recognition · vesica piscis · terracotta */
+  --accent:     #9d4418;
   --accent-lt:  #c45a20;
   --muted:      #7a7163;
   --line:       rgba(26,24,20,.12);
   --r:          8px;
   --serif:      'Exo 2', system-ui, sans-serif;
   --sans:       'DM Sans', system-ui, sans-serif;
+  --display:    'Cormorant Garamond', Georgia, serif;
 }
 [data-theme="dark"] {
   --ink:        #f4f2ec;
@@ -145,18 +144,18 @@ body { font-family: var(--sans); background: var(--paper); color: var(--ink); li
   letter-spacing: .06em;
 }
 .hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  line-height: 1.12;
-  letter-spacing: -.03em;
-  font-weight: 700;
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  font-weight: 400;
   color: var(--ink);
   max-width: 680px;
   margin-bottom: 1.4rem;
 }
 .hero h1 em {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--accent);
 }
 .subhead {
@@ -212,14 +211,15 @@ section { margin-top: 5rem; }
   padding: 2.2rem 2.4rem;
 }
 .card h2 {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-family: var(--display);
+  font-size: 1.8rem;
+  font-weight: 400;
   letter-spacing: -.02em;
   margin-bottom: 1rem;
   color: var(--ink);
 }
-.card p { color: var(--muted); line-height: 1.75; font-size: .97rem; }
+.card p { color: var(--muted); line-height: 1.75; font-size: .97rem; margin-bottom: .8rem; }
+.card p:last-child { margin-bottom: 0; }
 /* ─── how it works grid ─── */
 .how-grid {
   display: grid;
@@ -302,14 +302,15 @@ section { margin-top: 5rem; }
   padding: 2.2rem 2.4rem;
 }
 .moss-card h2 {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-family: var(--display);
+  font-size: 1.8rem;
+  font-weight: 400;
   letter-spacing: -.02em;
   margin-bottom: .8rem;
   color: var(--ink);
 }
 .moss-card p { color: var(--muted); line-height: 1.75; font-size: .97rem; margin-bottom: 1rem; }
+.moss-card p:last-of-type { margin-bottom: 0; }
 /* ─── footer ─── */
 .footer {
   margin-top: 5rem;
@@ -342,7 +343,7 @@ section { margin-top: 5rem; }
       <a href="#how">how it works</a>
       <a href="#tenets">tenets</a>
       <a href="#join" class="pill">join</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌙</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
   </header>
 
@@ -350,19 +351,45 @@ section { margin-top: 5rem; }
 
     <!-- ─── hero ─── -->
     <section class="hero">
-      <p class="kicker">distributed resource building lab · resource exchange for the decentralised tech ecosystem</p>
-      <h1>A peer-run space to match <em>needs and offers.</em></h1>
+      <p class="kicker">drbl exchange · distributed resource building lab · where the ecosystem gathers</p>
+      <h1>The place where the ecosystem <em>comes alive.</em></h1>
       <p class="subhead">
-        We exist to create access for people to <strong>find funding ethically</strong>, <strong>connect on projects</strong>, and <strong>build shared infrastructure</strong> — without extraction, without hierarchy, without the 'usual nonsense'.
+        For individuals exploring the keys, teams considering the framework,
+        founders ready for a retainer, and collaborators who recognise what this is
+        when they see it. <strong>This is where the connection happens.</strong>
       </p>
       <p class="subhead">
-        Match needs ↔ offers. Run lightweight sprints. Ship things that matter.
+        Match needs ↔ offers. Run lightweight sprints. Connect for calls on Moss.
+        Built on mutuality — without extraction, without hierarchy,
+        without the usual nonsense.
       </p>
       <div class="ctaRow">
         <a class="btn primary" href="https://discord.gg/F7Bf4c4rhx" target="_blank" rel="noopener">join the discord</a>
         <a class="btn ghost" href="#tenets">read the tenets</a>
       </div>
-      <p class="hero-note">built on mutuality · running on introduction</p>
+      <p class="hero-note">built on mutuality · running on introduction · the vesica piscis does its work</p>
+    </section>
+
+    <!-- ─── what this is ─── -->
+    <section id="what">
+      <p class="section-label">what this is</p>
+      <div class="card">
+        <h2>A relational space that forms a vesica piscis — not a hierarchy.</h2>
+        <p>
+          The vesica piscis is what happens when two sovereign circles overlap
+          and create something neither could alone. That's the geometry this
+          space is built on. Not networking. Not pitching. Not extraction.
+          Genuine overlap between people who each bring something whole.
+        </p>
+        <p>
+          Whether you arrived through the quantum keys, the Field Research series,
+          a speaking engagement, a mentorship enquiry, or the Quantum Magic API —
+          this is where the relationship continues. Individuals, teams, and
+          organisations all find their entry point here.
+          The Discord for async connection. Moss for deeper collaboration
+          and video calls. Both invite-only. Both built for good soil.
+        </p>
+      </div>
     </section>
 
     <!-- ─── how it works ─── -->
@@ -459,13 +486,28 @@ section { margin-top: 5rem; }
       </div>
     </section>
 
-    <!-- ─── moss / join ─── -->
+    <!-- ─── join ─── -->
     <section id="join">
       <div class="moss-card">
         <h2>Ready to join?</h2>
-        <p>DRBL Exchange currently lives on Discord while we test <strong>Moss</strong> — a decentralised collab hub for social weaving — built for communities like this one.</p>
-        <p>One is the interim. The other is the destination. Both are invite-only: <strong>someone who's already here vouches for you.</strong> That's the whole filter — and it's intentional.</p>
-        <p class="muted">If you've been introduced by a member, we'd love to see you in Discord — say hello in #connect. Don't know anyone yet? That's exactly what we're here for. Reach out and let's connect you. 🌿</p>
+        <p>
+          DRBL Exchange currently lives on Discord while we test <strong>Moss</strong> —
+          a decentralised collaboration hub built for communities like this one.
+          Discord for async connection and introductions.
+          Moss for deeper collaboration, video calls, and the work that
+          needs a proper container.
+        </p>
+        <p>
+          Both are invite-only: <strong>someone who's already here vouches for you.</strong>
+          That's the whole filter — and it's intentional. The right people
+          recognise each other. The vesica piscis does its work.
+        </p>
+        <p class="muted">
+          If you've been introduced by a member, say hello in #connect.
+          Don't know anyone yet? Reach out to
+          <a href="https://deiadora.com" style="color:var(--accent);text-decoration:none;">Deiadora</a>
+          and let's find your entry point. 🌿
+        </p>
         <div class="ctaRow" style="margin-top:1.4rem;">
           <a class="btn primary" href="https://discord.gg/F7Bf4c4rhx" target="_blank" rel="noopener">join the discord</a>
           <a class="btn ghost" href="https://deiadora.com">meet deiadora</a>
@@ -485,32 +527,29 @@ section { margin-top: 5rem; }
 
     const toggle  = document.getElementById("themeToggle");
     const root    = document.documentElement;
-    const STORE   = "qc-theme"; // shared key across all ecosystem sites
+    const STORE   = "qc-theme";
 
-    // Detect system preference
     const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
 
     function resolveTheme() {
       const saved = localStorage.getItem(STORE);
-      if (saved) return saved;                     // explicit user override
-      return sysDark.matches ? "dark" : "light";   // follow system
+      if (saved) return saved;
+      return sysDark.matches ? "dark" : "light";
     }
 
     function applyTheme(theme) {
       root.setAttribute("data-theme", theme);
-      toggle.textContent = theme === "dark" ? "🌙" : "☀️";
+      const isSystem = !localStorage.getItem(STORE);
+      toggle.textContent = isSystem ? "🌗" : (theme === "dark" ? "🌙" : "☀️");
       toggle.setAttribute("aria-label", theme === "dark" ? "switch to light mode" : "switch to dark mode");
     }
 
-    // Initial paint
     applyTheme(resolveTheme());
 
-    // Toggle click — cycle: override opposite → clear override (return to system)
     toggle.addEventListener("click", () => {
       const current = root.getAttribute("data-theme");
       const sysTheme = sysDark.matches ? "dark" : "light";
       const next = current === "dark" ? "light" : "dark";
-
       if (next === sysTheme) {
         localStorage.removeItem(STORE);
       } else {
@@ -519,7 +558,6 @@ section { margin-top: 5rem; }
       applyTheme(next);
     });
 
-    // Follow OS schedule changes if no manual override is set
     sysDark.addEventListener("change", () => {
       if (!localStorage.getItem(STORE)) {
         applyTheme(sysDark.matches ? "dark" : "light");
