@@ -1,7 +1,7 @@
 # drblexchange.com · dimension 2 · recognition · vesica piscis
  
 Two sovereign circles meeting. The peer exchange and mutual aid
-infrastructure of the deiadora ecosystem. Dimension 2 of The Currency Workshop
+infrastructure of the deiadora ecosystem. Dimension 2 of The Currency Playbook workshop
 — values and vision alignment.
 
 ## part of the deiadora ecosystem
