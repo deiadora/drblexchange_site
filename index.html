@@ -1,350 +1,409 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>drbl exchange — where the ecosystem gathers</title>
-  <meta name="description" content="A peer-run space to connect, collaborate, and build — for individuals, teams, and organisations exploring the deiadora ecosystem." />
-  <meta property="og:title" content="drbl exchange" />
-  <meta property="og:description" content="Where the ecosystem gathers. Match needs and offers. Run sprints. Build on mutuality." />
+  <title>drbl exchange — drop in · recognise · build · launch</title>
+  <meta name="description" content="Where people applying the arcs in their work find each other. Needs meet offers, moves take 48 hours, and shipping beats debating. Invite-based, built on mutuality." />
+  <meta property="og:title" content="drbl exchange — drop in · recognise · build · launch" />
+  <meta property="og:description" content="Built for recognition — networking's missing third move. The room is new; the first people in shape what it becomes." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://drblexchange.com" />
-  <meta property="og:image" content="https://drblexchange.com/drblx_banner_sm.jpeg" />
+  <meta property="og:url" content="https://drblexchange.com" /><meta property="og:image" content="https://drblexchange.com/drblx_banner_sm.jpeg" />
   <link rel="icon" href="/drblx_favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
 :root {
-  --ink:        #1a1814;
-  --paper:      #f4f2ec;
-  --card:       #fffff2;
-  --card-lt:    #e8e2d6;
-  --gold:       #8a6418;
-  --accent:     #9d4418;
-  --accent-lt:  #c45a20;
-  --muted:      #7a7163;
-  --line:       rgba(26,24,20,.12);
-  --line-s:     rgba(26,24,20,.18);
+  --ink:        #f0ede3;
+  --paper:      #0c1516;
+  --card:       #0e171a;
+  --card-lt:    #131f23;
+  --accent:     #a18ecd;   /* node-9 purple, lifted for AA on dark paper (6.4:1) */
+  --crown:      var(--accent);
+  --muted:      #d8d3c7;
+  --line:       rgba(240,237,230,.1);
+  --line-s:     rgba(240,237,230,.18);
   --r:          8px;
   --serif:      'Exo 2', system-ui, sans-serif;
   --sans:       'DM Sans', system-ui, sans-serif;
   --display:    'Cormorant Garamond', Georgia, serif;
 }
 [data-theme="dark"] {
-  --ink:        #f4f2ec;
+  --ink:        #f7f5ef;
   --paper:      #010003;
   --card:       #151515;
   --card-lt:    #20211e;
-  --gold:       #e6c47d;
-  --accent:     #9d4418;
-  --accent-lt:  #c45a20;
-  --muted:      #b5ad9e;
+  --accent:     #a18ecd;   /* 7.3:1 on pure black */
+  --muted:      #cfc9bc;
   --line:       rgba(240,237,230,.1);
   --line-s:     rgba(240,237,230,.18);
 }
-[data-theme="dark"] .nav       { background: #010003; }
-[data-theme="dark"] .card      { background: #151515; }
-[data-theme="dark"] .how-card  { background: #151515; }
-[data-theme="dark"] .moss-card { background: #151515; }
+[data-theme="dark"] .nav          { background: #010003; }
+[data-theme="dark"] .contact-card { background: #151515; }
+[data-theme="dark"] .case-card    { background: #151515; }
+
 [data-theme="light"] {
-  --ink:        #1a1814;
-  --paper:      #f4f2ec;
-  --card:       #fffff2;
-  --card-lt:    #e8e2d6;
-  --muted:      #7a7163;
-  --gold:       #8a6418;
-  --accent:     #9d4418;
-  --accent-lt:  #c45a20;
-  --line:       rgba(26,24,20,.12);
-  --line-s:     rgba(26,24,20,.18);
+  --ink:      #1a1814;
+  --paper:    #f4f2ec;
+  --card:     #fffff2;
+  --card-lt:  #e8e2d6;
+  --accent:   #573f8d;   /* node-9 deepened for light paper — AA (7.5:1) */
+  --muted:    #57503f;
+  --line:     rgba(26,24,20,.1);
+  --line-s:   rgba(26,24,20,.18);
 }
-[data-theme="light"] .nav       { background: #f4f2ec; }
-[data-theme="light"] .card      { background: #fffff2; }
-[data-theme="light"] .how-card  { background: #fffff2; }
-[data-theme="light"] .moss-card { background: #fffff2; }
-[data-theme="light"] .brand     { color: #1a1814; }
+[data-theme="light"] .nav          { background: #f4f2ec; }
+[data-theme="light"] .brand        { color: #1a1814; }
+[data-theme="light"] .contact-card { background: var(--card); }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--sans); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background .25s, color .25s; }
+html { scrollbar-gutter: stable; scroll-behavior: smooth; transition: font-size .25s ease; }
+html[data-textsize="large"] { font-size: 115%; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s, color .25s;
+}
 
-/* nav */
+/* ─── skip link ─── */
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: var(--paper);
+  padding: .6rem 1.2rem; border-radius: 0 0 var(--r) 0;
+  font-size: .95rem; z-index: 200; text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* ─── nav ─── */
 .nav {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: .9rem 2rem; background: var(--paper);
-  border-bottom: 1px solid var(--line); backdrop-filter: blur(8px);
+  padding: .9rem 2rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
 }
-.brand { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -.02em; }
-.brand span { color: var(--accent); }
-.navlinks { display: flex; align-items: center; gap: 1.6rem; }
-.navlinks a { font-size: .85rem; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+.brand {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--ink); text-decoration: none; letter-spacing: -.02em;
+}
+.brand span { color: var(--crown); }
+.navlinks { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+.navlinks a {
+  font-size: .95rem; font-weight: 400;
+  color: var(--muted); text-decoration: none;
+  letter-spacing: .02em; transition: color .2s;
+}
 .navlinks a:hover { color: var(--accent); }
-.navlinks .pill { background: var(--accent); color: var(--paper); padding: .42rem 1rem; border-radius: 100px; font-weight: 500; transition: background .2s; }
-.navlinks .pill:hover { background: var(--accent-lt); outline: 1.5px solid var(--gold); outline-offset: 1px; }
-.navlinks .ecosystem-link {
-  font-size: .78rem; font-weight: 500; color: var(--muted); letter-spacing: .04em;
-  border: 1px solid var(--line-s); border-radius: 100px;
-  padding: .3rem .8rem; transition: border-color .2s, color .2s;
+.theme-toggle, .text-toggle {
+  background: none; border: 1.5px solid var(--line);
+  border-radius: 100px; cursor: pointer;
+  padding: .35rem .6rem; font-size: 1rem; line-height: 1;
+  color: var(--muted); transition: border-color .2s, color .2s;
 }
-.navlinks .ecosystem-link:hover { border-color: var(--accent); color: var(--accent); }
-.theme-toggle { background: none; border: 1.5px solid var(--line); border-radius: 100px; cursor: pointer; padding: .35rem .6rem; font-size: 1rem; line-height: 1; color: var(--muted); transition: border-color .2s, color .2s; }
-.theme-toggle:hover { border-color: var(--gold); color: var(--ink); }
+.theme-toggle:hover, .text-toggle:hover { border-color: var(--accent); color: var(--ink); }
+.text-toggle { display: inline-flex; align-items: baseline; gap: .1rem; font-family: var(--serif); }
+.text-toggle .a-sm { font-size: .72rem; font-weight: 500; }
+.text-toggle .a-lg { font-size: 1.02rem; font-weight: 600; }
+.text-toggle[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
-/* page */
-.page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+/* ─── page ─── */
+.page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 6rem; }
 
-/* hero */
+/* ─── hero ─── */
 .hero { padding: 7rem 0 5rem; border-bottom: 1px solid var(--line); }
-.kicker { font-family: var(--serif); font-style: italic; font-size: .88rem; font-weight: 300; color: var(--accent); margin-bottom: 1.2rem; letter-spacing: .06em; }
-.hero h1 { font-family: var(--display); font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.1; letter-spacing: -.02em; font-weight: 400; color: var(--ink); max-width: 680px; margin-bottom: 1.4rem; }
+.kicker {
+  font-family: var(--serif); font-style: italic;
+  font-size: .95rem; font-weight: 300;
+  color: var(--crown); margin-bottom: 1.2rem; letter-spacing: .06em;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.1; letter-spacing: -.02em;
+  font-weight: 400; color: var(--ink);
+  max-width: 700px; margin-bottom: 1.4rem;
+}
 .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-.subhead { font-size: 1.05rem; color: var(--muted); max-width: 560px; line-height: 1.75; margin-bottom: 2rem; font-weight: 300; }
+.subhead {
+  font-size: 1.15rem; color: var(--muted);
+  max-width: 620px; line-height: 1.75;
+  margin-bottom: 1.4rem; font-weight: 300;
+}
 .subhead strong { color: var(--ink); font-weight: 500; }
-.hero-note { font-size: .82rem; color: var(--muted); letter-spacing: .03em; margin-top: 2rem; font-style: italic; }
-.ctaRow { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
+.hero-note {
+  font-size: .9rem; color: var(--muted);
+  letter-spacing: .03em; margin-top: 2rem; font-style: italic;
+}
 
-/* buttons */
-.btn { display: inline-flex; align-items: center; padding: .65rem 1.4rem; border-radius: var(--r); font-family: var(--sans); font-size: .88rem; font-weight: 500; text-decoration: none; cursor: pointer; transition: all .2s; border: 1.5px solid transparent; }
+/* ─── section titles ─── */
+.section-label {
+  font-family: var(--serif); font-size: .85rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--crown); margin-bottom: 1.6rem;
+}
+section { margin-top: 5rem; }
+.section-heading {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 400;
+  color: var(--ink); line-height: 1.3;
+  margin-bottom: 1.6rem; max-width: 660px;
+}
+.section-intro {
+  font-size: 1.05rem; color: var(--muted);
+  line-height: 1.8; max-width: 660px;
+  margin-bottom: 1.6rem; font-weight: 300;
+}
+.section-intro strong { color: var(--ink); font-weight: 500; }
+.section-intro em { color: var(--ink); font-style: italic; }
+
+/* ─── how-it-works cards ─── */
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+@media (max-width: 640px) { .case-grid { grid-template-columns: 1fr; } }
+.case-card {
+  background: var(--card); border: 1px solid var(--line-s);
+  border-radius: var(--r); padding: 1.8rem 2rem;
+  display: flex; flex-direction: column; gap: .7rem;
+  transition: border-color .2s;
+}
+.case-card:hover { border-color: var(--accent); }
+.case-card .co {
+  font-family: var(--serif); font-size: .84rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
+}
+.case-card h3 {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
+  letter-spacing: -.01em; color: var(--ink); line-height: 1.3;
+}
+.case-card p { font-size: .97rem; color: var(--muted); line-height: 1.7; flex: 1; }
+
+/* ─── tenets ─── */
+.tenets { border-top: 1px solid var(--line); max-width: 680px; }
+.tenet {
+  display: flex; gap: 1.2rem; align-items: baseline;
+  padding: 1.1rem 0; border-bottom: 1px solid var(--line);
+}
+.tenet .t-num {
+  font-family: var(--serif); font-size: .8rem; font-weight: 600;
+  letter-spacing: .08em; color: var(--accent); flex-shrink: 0;
+}
+.tenet div p:first-child {
+  font-family: var(--serif); font-size: 1rem; font-weight: 600;
+  color: var(--ink); margin-bottom: .2rem;
+}
+.tenet div p:last-child { font-size: .97rem; color: var(--muted); line-height: 1.65; }
+
+/* ─── contact ─── */
+.contact-card {
+  background: var(--card); border: 1px solid var(--line-s);
+  border-radius: var(--r); padding: 2.2rem 2.4rem;
+}
+.contact-card h2 {
+  font-family: var(--display); font-size: 1.8rem; font-weight: 400;
+  letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink);
+}
+.contact-card p { color: var(--muted); line-height: 1.75; font-size: 1.05rem; }
+.contact-card p strong { color: var(--ink); font-weight: 500; }
+.contact-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.btn {
+  display: inline-flex; align-items: center;
+  padding: .65rem 1.4rem; border-radius: var(--r);
+  font-family: var(--sans); font-size: .95rem; font-weight: 500;
+  text-decoration: none; cursor: pointer; transition: all .2s;
+  border: 1.5px solid transparent;
+}
 .btn.primary { background: var(--accent); color: var(--paper); border-color: var(--accent); }
-.btn.primary:hover { background: var(--accent-lt); border-color: var(--accent-lt); }
+.btn.primary:hover { opacity: .85; }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-s); }
 .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-/* sections */
-section { margin-top: 5rem; }
-.section-label { font-family: var(--serif); font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.6rem; }
-
-/* cards */
-.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 2.2rem 2.4rem; }
-.card h2 { font-family: var(--display); font-size: 1.8rem; font-weight: 400; letter-spacing: -.02em; margin-bottom: 1rem; color: var(--ink); }
-.card p { color: var(--muted); line-height: 1.75; font-size: .97rem; margin-bottom: .8rem; }
-.card p:last-child { margin-bottom: 0; }
-
-/* how it works grid */
-.how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-@media (max-width: 600px) { .how-grid { grid-template-columns: 1fr; } }
-
-.how-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 1.8rem 2rem; display: flex; flex-direction: column; gap: .6rem; transition: border-color .2s; }
-.how-card:hover { border-color: var(--accent); }
-.how-card .channel { font-family: var(--serif); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-.how-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
-.how-card p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
-
-/* tenets */
-.tenets-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.2rem; }
-.tenet { display: flex; gap: 1.2rem; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
-.tenet:last-child { border-bottom: none; padding-bottom: 0; }
-.tenet-num { font-family: var(--serif); font-size: .78rem; font-weight: 600; color: var(--accent); letter-spacing: .06em; min-width: 1.6rem; padding-top: .15rem; }
-.tenet-body h3 { font-family: var(--sans); font-size: .92rem; font-weight: 500; color: var(--ink); margin-bottom: .3rem; }
-.tenet-body p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
-
-/* moss / join card */
-.moss-card { background: var(--card); border: 1px solid var(--accent); border-radius: var(--r); padding: 2.2rem 2.4rem; }
-.moss-card h2 { font-family: var(--display); font-size: 1.8rem; font-weight: 400; letter-spacing: -.02em; margin-bottom: .8rem; color: var(--ink); }
-.moss-card p { color: var(--muted); line-height: 1.75; font-size: .97rem; margin-bottom: 1rem; }
-.moss-card p:last-of-type { margin-bottom: 0; }
-
-/* footer */
-.footer { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .6rem; font-size: .82rem; color: var(--muted); }
-.footer a { color: var(--gold); text-decoration: none; }
+/* ─── footer ─── */
+.footer {
+  margin-top: 5rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .6rem; font-size: .9rem; color: var(--muted);
+}
+.footer a { color: var(--accent); text-decoration: none; }
 .footer a:hover { opacity: .75; }
 
-/* animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ─── animations ─── */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero .kicker    { animation: fadeUp .5s ease both; animation-delay: .05s; }
+  .hero h1         { animation: fadeUp .5s ease both; animation-delay: .12s; }
+  .hero .subhead   { animation: fadeUp .5s ease both; animation-delay: .2s; }
+  .hero .hero-cta  { animation: fadeUp .5s ease both; animation-delay: .26s; }
+  .hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .32s; }
 }
-.hero .kicker    { animation: fadeUp .5s ease both; animation-delay: .05s; }
-.hero h1         { animation: fadeUp .5s ease both; animation-delay: .12s; }
-.hero .subhead   { animation: fadeUp .5s ease both; animation-delay: .2s; }
-.hero .ctaRow    { animation: fadeUp .5s ease both; animation-delay: .28s; }
-.hero .hero-note { animation: fadeUp .5s ease both; animation-delay: .34s; }
   </style>
 </head>
 <body>
 
+  <a class="skip" href="#main">skip to content</a>
+
   <header class="nav">
     <a class="brand" href="/">drbl <span>exchange</span></a>
-    <nav class="navlinks">
+    <nav class="navlinks" aria-label="primary">
+      <a href="#what">what this is</a>
       <a href="#how">how it works</a>
       <a href="#tenets">tenets</a>
-      <a class="ecosystem-link" href="https://deiadora.com">deiadora.com ↗</a>
+      <a href="#join">join</a>
+      <a href="https://deiadora.com">deiadora.com ↗</a>
+      <button class="text-toggle" id="textToggle" aria-label="toggle larger text" aria-pressed="false"><span class="a-sm">A</span><span class="a-lg">A</span></button>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle colour mode">🌗</button>
     </nav>
   </header>
 
-  <main class="page">
+  <main class="page" id="main">
 
-    <!-- hero -->
-    <section class="hero">
-      <p class="kicker">drbl exchange · distributed resource building lab · where the ecosystem gathers</p>
-      <h1>The place where the ecosystem <em>comes alive.</em></h1>
+    <!-- ─── 1 · hero ─── -->
+    <section class="hero" aria-labelledby="hero-h">
+      <p class="kicker">drbl exchange · drop in · recognise · build · launch</p>
+      <h1 id="hero-h">Where the people working the arcs <em>find each other.</em></h1>
       <p class="subhead">
-        For individuals exploring the keys, teams considering the framework,
-        founders ready for a retainer, and collaborators who recognise what this is
-        when they see it. <strong>This is where the connection happens.</strong>
+        You've read the 13, or you're applying them with a mentor, or you're building them into something — and you'd like company that gets it. drbl exchange is the room: <strong>needs meet offers, introductions are warm, moves take 48 hours, and shipping beats debating.</strong>
       </p>
       <p class="subhead">
-        Match needs ↔ offers. Run lightweight sprints. Connect for calls on Moss.
-        Built on mutuality — without extraction, without hierarchy,
-        without the usual nonsense.
+        The room is new — built alongside the ecosystem you see today. That's not a caveat; it's the offer. The first people in shape what it becomes.
       </p>
-      <div class="ctaRow">
-        <a class="btn primary" href="https://discord.gg/F7Bf4c4rhx" target="_blank" rel="noopener">join the discord</a>
-        <a class="btn ghost" href="#tenets">read the tenets</a>
+      <div class="hero-cta">
+        <a class="btn primary" href="#join">join the discord →</a>
+        <a class="btn ghost" href="#tenets">read the tenets ↓</a>
       </div>
-      <p class="hero-note">built on mutuality · running on introduction · the vesica piscis does its work</p>
+      <p class="hero-note">invite-based · built on mutuality · early is a feature</p>
     </section>
 
-    <!-- what this is -->
-    <section id="what">
-      <p class="section-label">what this is</p>
-      <div class="card">
-        <h2>A relational space that forms a vesica piscis — not a hierarchy.</h2>
-        <p>
-          The vesica piscis is what happens when two sovereign circles overlap
-          and create something neither could alone. That's the geometry this
-          space is built on. Not networking. Not pitching. Not extraction.
-          Genuine overlap between people who each bring something whole.
-        </p>
-        <p>
-          Whether you arrived through the quantum keys, the Field Research series,
-          a speaking engagement, a mentorship enquiry, or the Quantum Magic API —
-          this is where the relationship continues. Individuals, teams, and
-          organisations all find their entry point here.
-          The Discord for async connection. Moss for deeper collaboration
-          and video calls. Both invite-only. Both built for good soil.
-        </p>
-      </div>
+    <!-- ─── 2 · what this is ─── -->
+    <section id="what" aria-labelledby="what-label">
+      <p class="section-label" id="what-label">what this is</p>
+      <h2 class="section-heading">Built for recognition — networking's missing third move.</h2>
+      <p class="section-intro">
+        Professional community tends to fail in the two classic ways. <strong>Merger:</strong> everyone agreeing into mush, swapping favors until nobody remembers who actually needed what. <strong>Non-engagement:</strong> card-swapping past each other, a hundred connections and no contact. This space is built for the third move — <strong>recognition:</strong> two whole practitioners, each bringing something real, neither absorbed, neither ignored.
+      </p>
+      <p class="section-intro">
+        That's not a vibe; it's a mechanic. You arrive with who you are, what you're working on, and what you actually need. Someone recognises it — because they've got the offer that matches, or the need that rhymes. Then you build. Whether you arrived through the arcs, the mentorship, the consulting, or a book that landed — this is where the relationship continues.
+      </p>
     </section>
 
-    <!-- how it works -->
-    <section id="how">
-      <p class="section-label">how it works</p>
-      <div class="how-grid">
-        <div class="how-card">
-          <p class="channel">#connect</p>
+    <!-- ─── 3 · how it works ─── -->
+    <section id="how" aria-labelledby="how-label">
+      <p class="section-label" id="how-label">how it works</p>
+      <div class="case-grid">
+        <div class="case-card">
+          <p class="co">#connect</p>
           <h3>Introduce yourself</h3>
           <p>Who you are, what you're working on, what you offer, what you're looking for. One post, honest and brief.</p>
         </div>
-        <div class="how-card">
-          <p class="channel">#needs</p>
+        <div class="case-card">
+          <p class="co">#needs</p>
           <h3>Post a need</h3>
           <p>One need per message. What it is, who it helps, what done looks like, your deadline and time zone.</p>
         </div>
-        <div class="how-card">
-          <p class="channel">#offers</p>
+        <div class="case-card">
+          <p class="co">#offers</p>
           <h3>Post an offer</h3>
           <p>What you can do, who it's best for, your availability and limits. Clear constraints are a gift to everyone.</p>
         </div>
-        <div class="how-card">
-          <p class="channel">#matches</p>
+        <div class="case-card">
+          <p class="co">#matches</p>
           <h3>Pair and move</h3>
           <p>Need meets offer. Name an owner. Name a next step. 48-hour moves. 2-week sprints. Ship over debate.</p>
         </div>
       </div>
     </section>
 
-    <!-- tenets -->
-    <section id="tenets">
-      <p class="section-label">tenets</p>
-      <div class="card">
-        <h2>This is a space that runs on mutuality.</h2>
-        <p>Honesty, consistency, repair, and respect for boundaries. Basic relational hygiene. Here's what that looks like in practice:</p>
-        <div class="tenets-list">
-          <div class="tenet">
-            <span class="tenet-num">01</span>
-            <div class="tenet-body">
-              <h3>Non-extractive</h3>
-              <p>Clear asks. Offer something back or timebox. This is an exchange, not a favour bank.</p>
-            </div>
+    <!-- ─── 4 · tenets ─── -->
+    <section id="tenets" aria-labelledby="tenets-label">
+      <p class="section-label" id="tenets-label">tenets</p>
+      <h2 class="section-heading">This is a space that runs on mutuality.</h2>
+      <p class="section-intro">
+        Honesty, consistency, repair, and respect for boundaries. Basic relational hygiene — here's what that looks like in practice:
+      </p>
+      <div class="tenets">
+        <div class="tenet">
+          <span class="t-num">01</span>
+          <div>
+            <p>Non-extractive</p>
+            <p>Clear asks. Offer something back or timebox. This is an exchange, not a favour bank.</p>
           </div>
-          <div class="tenet">
-            <span class="tenet-num">02</span>
-            <div class="tenet-body">
-              <h3>Consent first</h3>
-              <p>No unsolicited DMs. Ask in-channel before sliding into anyone's inbox.</p>
-            </div>
+        </div>
+        <div class="tenet">
+          <span class="t-num">02</span>
+          <div>
+            <p>Consent first</p>
+            <p>No unsolicited DMs. Ask in-channel before sliding into anyone's inbox.</p>
           </div>
-          <div class="tenet">
-            <span class="tenet-num">03</span>
-            <div class="tenet-body">
-              <h3>One item per post</h3>
-              <p>Keep it scannable. One need, one offer, one idea. Clarity is kindness.</p>
-            </div>
+        </div>
+        <div class="tenet">
+          <span class="t-num">03</span>
+          <div>
+            <p>One item per post</p>
+            <p>Keep it scannable. One need, one offer, one idea. Clarity is kindness.</p>
           </div>
-          <div class="tenet">
-            <span class="tenet-num">04</span>
-            <div class="tenet-body">
-              <h3>Ship over debate</h3>
-              <p>Propose, name an owner, set a deadline. Progress beats perfect every time.</p>
-            </div>
+        </div>
+        <div class="tenet">
+          <span class="t-num">04</span>
+          <div>
+            <p>Ship over debate</p>
+            <p>Propose, name an owner, set a deadline. Progress beats perfect every time.</p>
           </div>
-          <div class="tenet">
-            <span class="tenet-num">05</span>
-            <div class="tenet-body">
-              <h3>Credit + permission</h3>
-              <p>Don't repost others' work outside drblx without asking. What's shared here stays here unless agreed otherwise.</p>
-            </div>
+        </div>
+        <div class="tenet">
+          <span class="t-num">05</span>
+          <div>
+            <p>Credit + permission</p>
+            <p>Don't repost others' work outside drbl without asking. What's shared here stays here unless agreed otherwise.</p>
           </div>
-          <div class="tenet">
-            <span class="tenet-num">06</span>
-            <div class="tenet-body">
-              <h3>Keep it public-safe</h3>
-              <p>Treat every post as if anyone could read it. Personal details, private projects, sensitive data — keep those in DMs or off-platform.</p>
-            </div>
+        </div>
+        <div class="tenet">
+          <span class="t-num">06</span>
+          <div>
+            <p>Keep it public-safe</p>
+            <p>Treat every post as if anyone could read it. Personal details, private projects, sensitive data — keep those in DMs or off-platform.</p>
           </div>
-          <div class="tenet">
-            <span class="tenet-num">07</span>
-            <div class="tenet-body">
-              <h3>No harassment or pile-ons</h3>
-              <p>Critique ideas, not people. Mods enforce this without debate.</p>
-            </div>
+        </div>
+        <div class="tenet">
+          <span class="t-num">07</span>
+          <div>
+            <p>No harassment or pile-ons</p>
+            <p>Critique ideas, not people. Mods enforce this without debate.</p>
           </div>
-          <div class="tenet">
-            <span class="tenet-num">08</span>
-            <div class="tenet-body">
-              <h3>No epistemic bullying</h3>
-              <p>Debate-as-domination — sealioning, gotchas, tone-policing — is not welcome here and will result in removal. Critique the idea. Respect the person.</p>
-            </div>
+        </div>
+        <div class="tenet">
+          <span class="t-num">08</span>
+          <div>
+            <p>No epistemic bullying</p>
+            <p>Debate-as-domination — sealioning, gotchas, tone-policing — is not welcome here and will result in removal. Critique the idea. Respect the person.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- join -->
-    <section id="join">
-      <div class="moss-card">
-        <h2>Ready to join?</h2>
-        <p>
-          DRBL Exchange currently lives on Discord while we test <strong>Moss</strong> —
-          a decentralised collaboration hub built for communities like this one.
-          Discord for async connection and introductions.
-          Moss for deeper collaboration, video calls, and the work that
-          needs a proper container.
-        </p>
-        <p>
-          Both are invite-only: <strong>someone who's already here vouches for you.</strong>
-          That's the whole filter — and it's intentional. The right people
-          recognise each other. The vesica piscis does its work.
-        </p>
-        <p class="muted">
-          If you've been introduced by a member, say hello in #connect.
-          Don't know anyone yet? Reach out to
-          <a href="https://deiadora.com" style="color:var(--accent);text-decoration:none;">Deiadora</a>
-          and let's find your entry point. 🌿
-        </p>
-        <div class="ctaRow" style="margin-top:1.4rem;">
-          <a class="btn primary" href="https://discord.gg/F7Bf4c4rhx" target="_blank" rel="noopener">join the discord</a>
-          <a class="btn ghost" href="https://deiadora.com">meet deiadora</a>
+    <!-- ─── 5 · join ─── -->
+    <section id="join" aria-labelledby="join-h">
+      <div class="contact-card">
+        <h2 id="join-h">Ready to join?</h2>
+        <p>drbl exchange lives on Discord. It's invite-based: <strong>someone who's already here vouches for you.</strong> That's the whole filter — and it's intentional. The right people recognise each other; the room stays good soil. If you've been introduced by a member, say hello in #connect. Don't know anyone yet? Email Deiadora and let's find your entry point.</p>
+        <div class="contact-row">
+          <a class="btn primary" href="#">join the discord</a>
+          <a class="btn ghost" href="mailto:herself@deiadora.com?subject=finding my entry point · drbl exchange">email deiadora</a>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>drbl exchange · recognition · vesica piscis</p>
+      <p>drbl exchange · drop in · recognise · build · launch</p>
       <p>© <span id="year"></span> · part of the <a href="https://deiadora.com">deiadora ecosystem</a> 🌿</p>
     </footer>
 
@@ -352,6 +411,8 @@ section { margin-top: 5rem; }
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* ── colour theme ── */
     const toggle  = document.getElementById("themeToggle");
     const root    = document.documentElement;
     const STORE   = "qc-theme";
@@ -377,7 +438,31 @@ section { margin-top: 5rem; }
       applyTheme(next);
     });
     sysDark.addEventListener("change", () => {
-      if (!localStorage.getItem(STORE)) applyTheme(sysDark.matches ? "dark" : "light");
+      if (!localStorage.getItem(STORE)) {
+        applyTheme(sysDark.matches ? "dark" : "light");
+      }
+    });
+
+    /* ── text size ── */
+    const textToggle = document.getElementById("textToggle");
+    const TEXT_STORE = "qc-textsize";
+    function applyTextSize(size) {
+      if (size === "large") {
+        root.setAttribute("data-textsize", "large");
+        textToggle.setAttribute("aria-pressed", "true");
+        textToggle.setAttribute("aria-label", "switch to normal text size");
+      } else {
+        root.removeAttribute("data-textsize");
+        textToggle.setAttribute("aria-pressed", "false");
+        textToggle.setAttribute("aria-label", "switch to larger text size");
+      }
+    }
+    applyTextSize(localStorage.getItem(TEXT_STORE) || "normal");
+    textToggle.addEventListener("click", () => {
+      const next = root.hasAttribute("data-textsize") ? "normal" : "large";
+      if (next === "large") { localStorage.setItem(TEXT_STORE, "large"); }
+      else { localStorage.removeItem(TEXT_STORE); }
+      applyTextSize(next);
     });
   </script>
 </body>
