@@ -1,7 +1,7 @@
 [drbl-exchange-README.md](https://github.com/user-attachments/files/29910595/drbl-exchange-README.md)
 # drblexchange.com
 
-> drbl exchange — drop in · recognise · build · launch. Where people working the arcs find each other.
+> DRBL Exchange — drop in · recognise · build · launch. Where people working the arcs find each other.
 
 ## What this is
 
